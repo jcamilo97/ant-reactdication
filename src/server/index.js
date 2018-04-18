@@ -5,12 +5,16 @@ import path from 'path';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import open from 'open';
-
+import exphb from 'express-handlebars';
+ 
 //webpack Configuration
 import  webpackConfig  from '../../webpack.config.babel';
 
+//Helpers
+import * as hbsHelpers from '../lib/handlebars';
+
 //server Port 
-const port = 3001;
+const port = process.env.PORT | 3000;
 
 //Enveiroment
 const isDevelopment = process.env.NODE_ENV !== 'production';
