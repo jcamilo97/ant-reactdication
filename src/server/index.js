@@ -5,13 +5,16 @@ import path from 'path';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import open from 'open';
-import exphb from 'express-handlebars';
+import exphbs from 'express-handlebars';
  
 //webpack Configuration
 import  webpackConfig  from '../../webpack.config.babel';
 
 //Helpers
-import * as hbsHelpers from '../lib/handlebars';
+import * as hbsHelper from '../lib/handlebars';
+
+//utils
+import { isMobile } from '../lib/utils/device';
 
 //server Port 
 const port = process.env.PORT | 3000;
@@ -25,6 +28,15 @@ const app = express();
 //Public
 app.use(express.static(path.join(__dirname, './../public')));
 
+// Handlebars setup
+app.engine('.hbs', exphbs({
+    extname:'.hbs',
+    helpers: hbsHelper
+}));
+
+app.set('views', path.join(__dirname, './views'));
+app.set('views engine', '.hbs');
+
 //webpack Compiler
 const webpackCompiler = webpack(webpackConfig);
 
@@ -34,10 +46,19 @@ if(isDevelopment){
     app.use(webpackHotMiddleware(webpackCompiler));
 }
 
-// Sending all traffic to React
-app.get('*',(req,res) =>{
-    res.sendFile(path.join(__dirname, '../../public/index.html'));
+// device detector
+app.use((req, res, next) => {
+    res.locals.isMobile = isMobile(req.headers['user-agent']);
+
+    return next();
 });
+// Sending all traffic to React
+app.get('*', (req, res) => {
+    res.render('frontend/index.hbs', {
+      layout: false
+    });
+  });
+  
 
 //Listen Port 
 app.listen(port, err => {

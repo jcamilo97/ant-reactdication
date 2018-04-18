@@ -38,7 +38,7 @@ const getExtension = () => ({
 });
 // init HTML Webpack Plugin
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './public/index.html', // archivo de nuestra vista
+  template: './src/server/views/frontend/index.hbs', // archivo de nuestra vista
   inject: 'body' // donde insertaremos nuestro script
 });
 
@@ -49,7 +49,6 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 const getPlugins = () => {
   const plugins = [
-        HtmlWebpackPluginConfig,
   ];
 
   if (isDevolopment) {
