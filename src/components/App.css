@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.App-intro {
+  font-size: large;
+}
+/*content*/
+
+.Navigation{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Navigation li {
+  display: inline-block;
+  padding-right: 2.5rem;
+}
+
+/*footer*/
+.App-footer a{
+  text-decoration-line: none;
+}
