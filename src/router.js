@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 import Page404 from './components/Page404';
 
 // Container
-import Home from './components/Home';
+import Home from './containers/Home';
 //import Library from './containers/Library';
 
 const Routes = () =>

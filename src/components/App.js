@@ -14,7 +14,6 @@ class App extends Component {
   }
   render() {
     const { children } = this.props;
-
     return (
       <div className="App">
         <Header title="Welcome to app.js" menus={menu}></Header>
