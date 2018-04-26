@@ -6,6 +6,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import open from 'open';
 import exphbs from 'express-handlebars';
+import  config  from '../config';
  
 //webpack Configuration
 import  webpackConfig  from '../../webpack.config.babel';
@@ -15,9 +16,6 @@ import * as hbsHelper from '../lib/handlebars';
 
 //utils
 import { isMobile } from '../lib/utils/device';
-
-//server Port 
-const port = process.env.PORT | 3000;
 
 //Enveiroment
 const isDevelopment = process.env.NODE_ENV !== 'production';
@@ -61,8 +59,11 @@ app.get('*', (req, res) => {
   
 
 //Listen Port 
-app.listen(port, err => {
+app.listen(config.serverPort, err => {
     if(!err){
-        open(`http://localhost:${port}`);
+        open(`${config.baseUrl}`);
+    }
+    else{
+        console.log(err)
     }
 });
