@@ -1,7 +1,7 @@
 export default [
   {
     title: 'Home',
-    url: '/'
+    url: '/home'
   },
   {
     title: 'About Us',

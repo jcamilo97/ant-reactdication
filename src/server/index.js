@@ -61,6 +61,7 @@ app.get('*', (req, res) => {
 //Listen Port 
 app.listen(config.serverPort, err => {
     if(!err){
+        console.log(`Application is listening on port ${config.serverPort} and ${config.baseUrl}`)
         open(`${config.baseUrl}`);
     }
     else{

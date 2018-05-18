@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Button } from 'antd';
 
 class Home extends Component {
   static propTypes = {
@@ -13,7 +14,7 @@ class Home extends Component {
     return (
       <div className="about">
         <h1>page Home</h1>  
-
+        <Button type="primary">Hello antd</Button>
         <p>
           { isMobile ? 'Mobile device': 'desktop device'}
         </p>          

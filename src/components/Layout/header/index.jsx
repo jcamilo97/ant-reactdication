@@ -1,33 +1,37 @@
-import React  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
 
 import logo from '../../../assets/logo.svg';
 import './header.css';
+const {Header } = Layout;
 
-class Header extends React.Component {
+class RHeader extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
   }
 
   render() {
-    console.log("props header ",this.props);
-    const {title, menus} = this.props;
+    console.log("props header ", this.props);
+    const { title, menus } = this.props;
     return (
-      <div className="App-header">
-        <header>
-          <img src={logo} className="App-logo" alt="logo" />
+      <Header className="header">        
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['0']}
+            style={{ lineHeight: '64px' }}
+          >
+            {
+              menus && menus.map(
+                (item, key) => <Menu.Item key={key}> <Link to={item.url}>{item.title}</Link></Menu.Item>)
+            }
+          </Menu>
           <h1 className="App-title">{title}</h1>
-        </header>
-        <ul className="Navigation">
-          {
-            menus && menus.map(
-            (item, key) => <li key={key}> <Link to={item.url}>{item.title}</Link></li>)
-          }
-        </ul>
-      </div>
+      </Header>    
     );
   }
 }
 
-export default Header;
+export default RHeader;

@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 //redux store
 import configureStore from './lib/configureStore';
 //reducer
-import rootReducer from './Reducers';
+import rootReducer from './reducers';
 //Bluebird configuration
 window.Promise = Bluebird;
 
