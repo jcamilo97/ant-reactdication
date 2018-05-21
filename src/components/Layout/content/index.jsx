@@ -41,7 +41,7 @@ class RContent extends React.Component {
             </SubMenu>
           </Menu>
         </Sider>
-        <Layout style={{ padding: '0 24px 24px' }}>
+        <Layout style={{ padding: '0 24px 24px', background: 'gainsboro' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>navigation in development</Breadcrumb.Item>
           </Breadcrumb>

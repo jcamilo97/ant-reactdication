@@ -18,6 +18,7 @@ const Routes = () =>
       <Route exact path="/about" component={About} />
       <Route exact path="/contact" component={Contact} />    
       <Route exact path="/home" component={Home} />
+      <Route exact path="/" component={Home} />
       <Route component={Page404} />
     </Switch>
   </App>;
